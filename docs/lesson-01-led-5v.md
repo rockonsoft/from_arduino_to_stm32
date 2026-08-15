@@ -63,13 +63,13 @@ Nucleo boards also expose power pins on their male expansion headers, often call
 
 
 1. Disconnect USB power.
-2. Find a male expansion-header pin explicitly labelled `5V` and a pin labelled `GND` in your board documentation or on the PCB. ![Pin 18 and 20](lesson1-nucleo-pins.png)
+2. Find a male expansion-header pin explicitly labelled `5V` and a pin labelled `GND` in your board documentation or on the PCB. ![Pin 18 and 20](images/lesson1-nucleo-pins.png)
 3. Move the resistor connection from the Arduino-compatible `5V` pin to the labelled male-header `5V` pin.
 4. Keep the LED cathode connected to the labelled male-header `GND` pin.
 5. Reconnect USB power.
 
 The LED should light again. The Arduino-compatible and male expansion headers distribute the same board power rail, but they are different physical connection points.
-![Nucleo Board with LED](lesson1-nucleo.png)
+![Nucleo Board with LED](images/lesson1-nucleo.png)
 
 ## What You Learned
 

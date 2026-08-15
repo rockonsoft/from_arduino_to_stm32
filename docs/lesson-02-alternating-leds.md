@@ -71,9 +71,9 @@ The red LED lights for one second while the blue LED is off. The blue LED then l
 In STM32CubeMX or STM32CubeIDE's `.ioc` editor:
 
 1. Set `PA9` to `GPIO_Output` and label it `RED_LED`.
-2. Set `PA8` to `GPIO_Output` and label it `BLUE_LED`. ![Assign GPIO Output](gpio_output.png) ![User Labels Assigned](lesson2-user-labels.png)
+2. Set `PA8` to `GPIO_Output` and label it `BLUE_LED`. ![Assign GPIO Output](images/gpio_output.png) ![User Labels Assigned](images/lesson2-user-labels.png)
 3. Set both outputs to `Low` initially, with push-pull output mode and no pull resistor.
-![System view showing both pins low](lesson2-pins-low.png)
+![System view showing both pins low](images/lesson2-pins-low.png)
 4. Generate the project code and build it for the Nucleo-F401RE.
 
 ### Add the alternating loop
@@ -91,10 +91,10 @@ HAL_Delay(1000);
 ```
 
 Build and run the program through the Nucleo's on-board ST-LINK debugger. The LEDs alternate in the same one-second pattern as the Uno.
-![Uno R3 Red](lesson2-image.png)
-![Uno R3 Blue](lesson2-image-1.png)
-![Nucleo Red](lesson2-image-2.png)
-![Nucleo Blue](lesson2-image-3.png)
+![Uno R3 Red](images/lesson2-image.png)
+![Uno R3 Blue](images/lesson2-image-1.png)
+![Nucleo Red](images/lesson2-image-2.png)
+![Nucleo Blue](images/lesson2-image-3.png)
 
 
 ## Arduino to STM32 Mapping
