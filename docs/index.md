@@ -24,7 +24,7 @@ The Arduino Uno R4 WiFi preserves the Uno form factor and `5V` GPIO while substa
 ### STM32 Nucleo-F401RE
 
 The STM32 Nucleo-F401RE is an STM32 Nucleo-64 development board based on the STM32F401RE. It provides Arduino Uno R3-compatible connectors for shields as well as ST Morpho male headers that expose more of the microcontroller's pins. The on-board ST-LINK programmer/debugger lets you program and debug the board over USB. Its GPIO is `3.3V` logic, so it must not be connected directly to a `5V` signal from an Uno.
-![STM32 Nucleo-F401RE](STM32-nucleo-f401RE.png)
+![STM32 Nucleo-F401RE](stm32-nucleo-f401re.png)
 
 ## Board Comparison
 
