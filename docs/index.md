@@ -47,11 +47,17 @@ Specifications are summarised from the [Arduino Uno R3](https://docs.arduino.cc/
 
 Start with [Lesson 1: Light an LED from 5V](lesson-01-led-5v.md). It introduces the Arduino Uno R3 and Nucleo board power headers without writing firmware.
 
+Use the [Acronyms and Dictionary](glossary.md) for short definitions of the terms used throughout these lessons.
+
 For the repository overview, setup information, and current progress, see the [project README](https://github.com/rockonsoft/from_arduino_to_stm32#readme).
 
 ## Lessons
 
 1. [Light an LED from 5V](lesson-01-led-5v.md)
+
+## Reference
+
+- [Acronyms and Dictionary](glossary.md)
 
 ## Planned Guides
 
