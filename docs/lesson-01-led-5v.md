@@ -30,9 +30,11 @@ An LED has polarity. The longer leg is the **anode** (`+`); the shorter leg, usu
 
 The resistor can be before or after the LED. It limits current to a safe level. With a typical red LED and a `330 ohm` resistor, the current is approximately:
 
-$$
-I = \frac{5\text{ V} - 2\text{ V}}{330\ \Omega} \approx 9\text{ mA}
-$$
+```text
+current = (supply voltage - LED voltage drop) / resistance
+current = (5 V - 2 V) / 330 ohm
+current = 0.009 A, or about 9 mA
+```
 
 ## Part A: Arduino Uno R3
 
@@ -57,15 +59,17 @@ The LED should light. This verifies that the Nucleo provides a `5V` supply throu
 
 ## Part C: STM32 Nucleo Male Expansion Headers
 
-Nucleo boards also expose power pins on their male expansion headers, often called **Morpho headers**. The header label and physical position depend on the specific Nucleo model.
+Nucleo boards also expose power pins on their male expansion headers, often called **Morpho headers**. 
+
 
 1. Disconnect USB power.
-2. Find a male expansion-header pin explicitly labelled `5V` and a pin labelled `GND` in your board documentation or on the PCB.
+2. Find a male expansion-header pin explicitly labelled `5V` and a pin labelled `GND` in your board documentation or on the PCB. ![Pin 18 and 20](lesson1-nucleo-pins.png)
 3. Move the resistor connection from the Arduino-compatible `5V` pin to the labelled male-header `5V` pin.
 4. Keep the LED cathode connected to the labelled male-header `GND` pin.
 5. Reconnect USB power.
 
 The LED should light again. The Arduino-compatible and male expansion headers distribute the same board power rail, but they are different physical connection points.
+![Nucleo Board with LED](lesson1-nucleo.png)
 
 ## What You Learned
 
