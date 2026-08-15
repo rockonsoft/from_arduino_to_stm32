@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^ruby -e 'index = File\\.read\\(\"docs/index\\.md\"\\); abort \"Lesson link missing\" unless index\\.include\\?\\(\"lesson-01-led-5v\\.md\"\\); abort \"Lesson page missing\" unless File\\.file\\?\\(\"docs/lesson-01-led-5v\\.md\"\\); puts \"Lesson link target is valid\"'$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}
