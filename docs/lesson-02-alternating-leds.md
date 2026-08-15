@@ -91,6 +91,11 @@ HAL_Delay(1000);
 ```
 
 Build and run the program through the Nucleo's on-board ST-LINK debugger. The LEDs alternate in the same one-second pattern as the Uno.
+![Uno R3 Red](lesson2-image.png)
+![Uno R3 Blue](lesson2-image-1.png)
+![Nucleo Red](lesson2-image-2.png)
+![Nucleo Blue](lesson2-image-3.png)
+
 
 ## Arduino to STM32 Mapping
 
