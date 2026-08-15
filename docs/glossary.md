@@ -88,6 +88,9 @@ An alphabetic reference for technical terms and abbreviations used in this docum
 **GPIO (general-purpose input/output)**
 : A programmable digital pin that can be used as an input or output.
 
+**GPIO output**
+: A GPIO configured to drive a logic low or high voltage. In Lesson 2, the output turns an LED off or on through its series resistor.
+
 ## H
 
 **HAL (hardware abstraction layer)**
@@ -111,6 +114,9 @@ An alphabetic reference for technical terms and abbreviations used in this docum
 
 **LED (light-emitting diode)**
 : A diode that emits light when current flows from its anode to cathode. It requires a series current-limiting resistor.
+
+**Logic high and logic low**
+: The two digital output states. Arduino calls them `HIGH` and `LOW`; STM32 HAL calls them `GPIO_PIN_SET` and `GPIO_PIN_RESET`.
 
 **Logic voltage**
 : The voltage levels a board's digital pins use to represent low and high signals. Uno R3 and Uno R4 WiFi GPIO use `5V`; Nucleo-F401RE GPIO uses `3.3V`.
@@ -144,6 +150,9 @@ An alphabetic reference for technical terms and abbreviations used in this docum
 
 **PlatformIO**
 : An embedded development environment and build system that supports Arduino and STM32 projects.
+
+**pinMode()**
+: An Arduino function that sets the mode of a pin, such as `OUTPUT` for an LED control pin.
 
 **Polarity**
 : The required positive and negative orientation of a component or power connection. LEDs have polarity.
@@ -192,6 +201,9 @@ An alphabetic reference for technical terms and abbreviations used in this docum
 
 **STM32CubeMX**
 : STMicroelectronics' configuration tool that generates STM32 project setup code.
+
+**STM32 HAL (hardware abstraction layer)**
+: STMicroelectronics' library for controlling STM32 hardware. `HAL_GPIO_WritePin()` sets a GPIO output and `HAL_Delay()` pauses for a specified number of milliseconds.
 
 **STM32F401RE**
 : The STM32 microcontroller fitted to the Nucleo-F401RE board; it uses an Arm Cortex-M4 core.

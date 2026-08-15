@@ -49,7 +49,7 @@ Specifications are summarised from the [Arduino Uno R3](https://docs.arduino.cc/
 
 ## Getting Started
 
-Start with [Lesson 1: Light an LED from 5V](lesson-01-led-5v.md). It introduces the Arduino Uno R3 and Nucleo board power headers without writing firmware.
+Start with [Lesson 1: Light an LED from 5V](lesson-01-led-5v.md). It introduces the Arduino Uno R3 and Nucleo board power headers without writing firmware. Continue with [Lesson 2: Alternate red and blue LEDs](lesson-02-alternating-leds.md) to control LEDs from GPIO pins.
 
 Use the [Acronyms and Dictionary](glossary.md) for short definitions of the terms used throughout these lessons.
 
@@ -58,6 +58,7 @@ For the repository overview, setup information, and current progress, see the [p
 ## Lessons
 
 1. [Light an LED from 5V](lesson-01-led-5v.md)
+2. [Alternate red and blue LEDs](lesson-02-alternating-leds.md)
 
 ## Reference
 
