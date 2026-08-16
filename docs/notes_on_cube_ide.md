@@ -1,0 +1,1 @@
+![Importing MX Project](images/importing_mx_project.png)

@@ -129,21 +129,27 @@ In the CubeMX timer configuration:
 1. Enable `TIM2` as **Time Base** with **Internal Clock** source.
 ![MX with timers](images/mx_timers.png)
 2. Set **Prescaler** to `8399` and **Counter Period** to `9999`.
-![Configuration with Warnings](images/mx_warnings.png)
+![TIM2 Configuration](images/tim2.png)
 3. Enable the `TIM2 global interrupt` in the NVIC configuration.
+![TIM2 global interrupt](images/tim2_global_interrupt.png)
 4. Keep `PA9` (`RED_LED`) and `PA8` (`BLUE_LED`) as GPIO outputs from Lesson 2. CubeMW will show warnings about the timer and GPIO pins sharing the same alternate function. This is expected and does not prevent the timer from working in this case. If advanced timer features are needed, you can move the GPIO outputs to other pins.
 5. Generate the project code.
 
+See [mx_timer_explained.md](mx_timer_explained.md) for a detailed explanation of the CubeMX timer configuration.
 
 
-Add a timer handle and a flag in the user-code sections of `main.c`:
+The generated code in  `main.c` will contain a definition for the timer handle
 
 ```c
 TIM_HandleTypeDef htim2;
-volatile uint8_t timerTick = 0;
+```
+In a user-code section, declare a `volatile` flag to indicate the timer event:
+
+```c
+volatile uint8_t timerTick = 0; // this is the timer interrupt flag
 ```
 
-Call `MX_TIM2_Init()` with the other `MX_..._Init()` functions, then start the interrupt timer after initialization:
+The generated code will add a call to `MX_TIM2_Init()` with the other `MX_..._Init()` functions, then start the interrupt timer after initialization:
 
 ```c
 HAL_TIM_Base_Start_IT(&htim2);
@@ -159,6 +165,15 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   }
 }
 ```
+[hal_tim_callback_explained.md](hal_tim_callback_explained.md) explains how the HAL calls this function when the timer update event occurs.
+
+Add the following before the while loop in `main()` to set the initial LED states:
+```c
+// RED on
+HAL_GPIO_WritePin(RED_LED_GPIO_Port, RED_LED_Pin, GPIO_PIN_SET);
+// BLUE off
+HAL_GPIO_WritePin(BLUE_LED_GPIO_Port, BLUE_LED_Pin, GPIO_PIN_RESET);
+```
 
 Replace the blocking LED code in `while (1)` with:
 
@@ -171,6 +186,7 @@ if (timerTick) {
 
 /* Other application work runs here without a one-second delay. */
 ```
+Compile and run the program through the Nucleo's on-board ST-LINK debugger. The red and blue LEDs alternate every second without blocking the main loop. The `HAL_TIM_PeriodElapsedCallback()` function is called by the HAL when the timer update event occurs, and it sets the `timerTick` flag for the main loop to process.
 
 ## Comparison
 
