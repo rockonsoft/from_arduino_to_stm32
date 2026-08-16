@@ -127,10 +127,14 @@ period = 10,000 - 1    -> 1 second update event
 In the CubeMX timer configuration:
 
 1. Enable `TIM2` as **Time Base** with **Internal Clock** source.
+![MX with timers](images/mx_timers.png)
 2. Set **Prescaler** to `8399` and **Counter Period** to `9999`.
+![Configuration with Warnings](images/mx_warnings.png)
 3. Enable the `TIM2 global interrupt` in the NVIC configuration.
-4. Keep `PA9` (`RED_LED`) and `PA8` (`BLUE_LED`) as GPIO outputs from Lesson 2.
+4. Keep `PA9` (`RED_LED`) and `PA8` (`BLUE_LED`) as GPIO outputs from Lesson 2. CubeMW will show warnings about the timer and GPIO pins sharing the same alternate function. This is expected and does not prevent the timer from working in this case. If advanced timer features are needed, you can move the GPIO outputs to other pins.
 5. Generate the project code.
+
+
 
 Add a timer handle and a flag in the user-code sections of `main.c`:
 
