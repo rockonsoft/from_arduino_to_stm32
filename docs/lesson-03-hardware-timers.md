@@ -101,12 +101,14 @@ After uploading, the sketch requests a free timer channel and configures a `1 Hz
 
 My specific Uno R4 WiFi board has the R7FA4M1AB3CFM chip on it from the Renesas RA4M1 family. 
 Question: How many timers can the R7FA4M1AB3CFM run at the same time? The R7FA4M1AB3CFM has multiple GPT and AGT timers, allowing several timers to run concurrently. According to the [datasheet](https://www.renesas.com/en/products/ra4m1/part-details/r7fa4m1ab3cfm-aa0) the following timers are available as shown in this table:
+
 | Timer Type | Number of Timers | Description |
 | --- | --- | --- |
 | GPT 32-Bit | 2 | General Purpose Timers, 32-bit |
 | GPT 16-Bit | 6 | General Purpose Timers, 16-bit |
 | AGT | 2 | Asynchronous General Purpose Timer / Interval Timer (channels) |
 | Watchdog Timer | 2 | Watchdog timers |
+
 No 8-bit timers are available on the R7FA4M1AB3CFM.
 ![R7FA4M1AB3CFM](images/r7fa4m1ab3cfm.png)
 
