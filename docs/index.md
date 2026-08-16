@@ -1,13 +1,22 @@
 # From Arduino to STM32
 
 Practical notes, examples, and reference material for moving Arduino Uno projects to STM32 microcontrollers.
+![UNO and STM Nucleo Board](images/uno-and-stm-board.png)
 
 ## What This Project Covers
 
 - Mapping familiar Arduino concepts to STM32 hardware and tooling
-- Recreating Arduino projects with STM32CubeIDE, STM32CubeMX, or PlatformIO
+- Recreating Arduino projects with STM32CubeIDE, STM32CubeMX
 - Comparing pins, peripherals, libraries, and programming workflows
 - Building small, reproducible examples for both platforms
+
+
+## Lessons
+
+1. [Light an LED from 5V](lesson-01-led-5v.md)
+2. [Alternate red and blue LEDs](lesson-02-alternating-leds.md)
+3. [Hardware timer LED control](lesson-03-hardware-timers.md)
+
 
 ## Equipment
 
@@ -55,12 +64,6 @@ Start with [Lesson 1: Light an LED from 5V](lesson-01-led-5v.md). It introduces 
 Use the [Acronyms and Dictionary](glossary.md) for short definitions of the terms used throughout these lessons.
 
 For the repository overview, setup information, and current progress, see the [project README](https://github.com/rockonsoft/from_arduino_to_stm32#readme).
-
-## Lessons
-
-1. [Light an LED from 5V](lesson-01-led-5v.md)
-2. [Alternate red and blue LEDs](lesson-02-alternating-leds.md)
-3. [Hardware timer LED control](lesson-03-hardware-timers.md)
 
 ## Reference
 
