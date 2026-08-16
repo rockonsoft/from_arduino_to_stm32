@@ -49,7 +49,7 @@ Specifications are summarised from the [Arduino Uno R3](https://docs.arduino.cc/
 
 ## Getting Started
 
-Start with [Lesson 1: Light an LED from 5V](lesson-01-led-5v.md). It introduces the Arduino Uno R3 and Nucleo board power headers without writing firmware. Continue with [Lesson 2: Alternate red and blue LEDs](lesson-02-alternating-leds.md) to control LEDs from GPIO pins.
+Start with [Lesson 1: Light an LED from 5V](lesson-01-led-5v.md). It introduces the Arduino Uno R3 and Nucleo board power headers without writing firmware. Continue with [Lesson 2: Alternate red and blue LEDs](lesson-02-alternating-leds.md) to control LEDs from GPIO pins, then [Lesson 3: Hardware timer LED control](lesson-03-hardware-timers.md) to replace blocking delays with timer interrupts.
 
 Use the [Acronyms and Dictionary](glossary.md) for short definitions of the terms used throughout these lessons.
 
@@ -59,6 +59,7 @@ For the repository overview, setup information, and current progress, see the [p
 
 1. [Light an LED from 5V](lesson-01-led-5v.md)
 2. [Alternate red and blue LEDs](lesson-02-alternating-leds.md)
+3. [Hardware timer LED control](lesson-03-hardware-timers.md)
 
 ## Reference
 
@@ -78,3 +79,10 @@ For the repository overview, setup information, and current progress, see the [p
 
 Firmware source and examples will be organised by target platform, while this `docs/` directory contains the GitHub Pages documentation.
 
+
+## Git Tagging
+Use tags to mark the start and end of each lesson. For example, after completing Lesson 2, run:
+```bash
+git tag -a End_Lesson2  <commit> -m"Lesson 2 completed"
+git push origin --tags
+```

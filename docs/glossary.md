@@ -47,6 +47,9 @@ An alphabetic reference for technical terms and abbreviations used in this docum
 **Cortex-M4**
 : A 32-bit Arm microcontroller processor core used by the Renesas RA4M1 and STM32F401RE.
 
+**CTC (Clear Timer on Compare Match)**
+: A timer mode in which a counter resets automatically after reaching a configured compare value. Lesson 3 uses Timer1 CTC mode on the Uno R3.
+
 ## D
 
 **DAC (digital-to-analog converter)**
@@ -79,6 +82,9 @@ An alphabetic reference for technical terms and abbreviations used in this docum
 
 **FPU (floating-point unit)**
 : Processor hardware that accelerates floating-point arithmetic. The STM32F401RE's Cortex-M4 includes an FPU.
+
+**FspTimer**
+: The Uno R4 Arduino core API for allocating and configuring RA4M1 GPT or AGT hardware timers.
 
 ## G
 
@@ -210,6 +216,17 @@ An alphabetic reference for technical terms and abbreviations used in this docum
 
 **SWD (Serial Wire Debug)**
 : Arm's two-wire hardware debugging and programming interface.
+
+## T
+
+**TIM2**
+: A general-purpose STM32F401RE hardware timer. Lesson 3 configures it as a one-second time base.
+
+**Timer**
+: A microcontroller peripheral that counts clock pulses and can generate periodic events or interrupts without blocking the main program.
+
+**Timer interrupt**
+: Code invoked by hardware when a timer event occurs. It should complete quickly and normally sets a flag for the main loop to process.
 
 ## U
 
