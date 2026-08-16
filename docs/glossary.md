@@ -7,6 +7,9 @@ An alphabetic reference for technical terms and abbreviations used in this docum
 **ADC (analog-to-digital converter)**
 : A peripheral that measures an analog voltage and converts it to a numeric value that software can read.
 
+**Amber LED**
+: The yellow-orange indicator used in Lesson 4 for an object between the red and blue distance thresholds.
+
 **Analog input**
 : A pin or peripheral input that measures a varying voltage, such as the output from a sensor or potentiometer.
 
@@ -97,6 +100,9 @@ An alphabetic reference for technical terms and abbreviations used in this docum
 **GPIO output**
 : A GPIO configured to drive a logic low or high voltage. In Lesson 2, the output turns an LED off or on through its series resistor.
 
+**HC-SR04**
+: A low-cost ultrasonic distance sensor with `TRIG` input and `ECHO` pulse output. Echo pulse width represents round-trip sound travel time.
+
 ## H
 
 **HAL (hardware abstraction layer)**
@@ -115,6 +121,9 @@ An alphabetic reference for technical terms and abbreviations used in this docum
 
 **ICSP (in-circuit serial programming)**
 : A connector or method for programming a microcontroller directly, typically using SPI signals on the Uno R3.
+
+**Input capture**
+: A timer feature that records the counter value when an external signal edge arrives. It measures pulse width without polling the pin.
 
 ## L
 

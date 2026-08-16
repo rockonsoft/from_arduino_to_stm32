@@ -16,6 +16,7 @@ Practical notes, examples, and reference material for moving Arduino Uno project
 1. [Light an LED from 5V](lesson-01-led-5v.md)
 2. [Alternate red and blue LEDs](lesson-02-alternating-leds.md)
 3. [Hardware timer LED control](lesson-03-hardware-timers.md)
+4. [HC-SR04 ultrasonic distance measurement](lesson-04-hcsr04.md)
 
 
 ## Equipment
