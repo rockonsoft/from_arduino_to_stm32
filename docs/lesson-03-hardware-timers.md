@@ -21,6 +21,40 @@ Do not call slow functions such as `delay()`, `Serial.print()`, or network code 
 
 ## Part A: Arduino Uno R3 Timer1 CTC
 
+For this lesson I will not be using the Arduino IDE, but will be using the Arduino CLI to compile and upload the sketch. Details on the Arduino CLI can be found [here](https://docs.arduino.cc/arduino-cli/). The sketch is located in the `3_hard_time/arduino/uno-r3-ctc` directory.
+
+### Using the Arduino CLI
+1. Install the Arduino CLI and add it to your system path.
+2. Open a terminal and navigate to the `3_hard_time/arduino/` directory (The parent directory of the sketch you want to compile).
+3. Install the Arduino AVR core if you haven't already:
+```bash
+arduino-cli core update-index
+arduino-cli core install arduino:avr
+```
+4. Compile the sketch:
+```bash
+arduino-cli compile -b arduino:avr:uno uno-r3-ctc
+```
+(Where does the compiled output go? You can also specify a different build path using the `--build-path` option, by default it goes to a temporary directory.TBC???)
+5. Find the port your Arduino Uno R3 is connected to. On Linux, you can use:
+```bash
+arduino-cli board list
+```
+This produces output like:
+```text
+Port         Protocol Type              Board Name  FQBN            Core
+/dev/ttyACM0 serial   Serial Port (USB) Arduino UNO arduino:avr:uno arduino:avr
+``` 
+6. Upload the sketch to your Arduino Uno R3:
+```bash
+arduino-cli upload -p <your_port> --fqbn arduino:avr:uno uno-r3-ctc
+```
+If successful, this will output something like:
+```text 
+New upload port: /dev/ttyACM0 (serial)
+```
+
+
 The Uno R3 uses the ATmega328P. Its 16-bit `Timer1` can run in **CTC** (Clear Timer on Compare Match) mode. In CTC mode, the counter resets automatically when it reaches the value in the `OCR1A` compare register.
 
 At a `16 MHz` CPU clock, dividing by `1024` gives a timer clock of `15,625 Hz`. Setting `OCR1A` to `15,624` produces one compare event each second:
@@ -31,13 +65,50 @@ At a `16 MHz` CPU clock, dividing by `1024` gives a timer clock of `15,625 Hz`. 
 OCR1A = 15,625 - 1 = 15,624
 ```
 
-Upload [uno-r3-ctc.ino](../3_hard_time/arduino/uno-r3-ctc/uno-r3-ctc.ino) after selecting **Arduino Uno**. Timer1 is dedicated to this sketch, so avoid libraries that also require Timer1, such as the standard Servo library.
+Once [uno-r3-ctc.ino](../3_hard_time/arduino/uno-r3-ctc/uno-r3-ctc.ino) is uploaded, the red and blue LEDs alternate every second without blocking the main loop. The Uno R3 sketch uses the `ISR(TIMER1_COMPA_vect)` interrupt vector to set a `volatile` flag, which the main loop checks to toggle the LEDs.
+
+Question: How many timers can the ATmega328P run at the same time? The ATmega328P has three timers: `Timer0` (8-bit), `Timer1` (16-bit), and `Timer2` (8-bit). Each timer can be configured independently, allowing multiple timers to run simultaneously.
 
 ## Part B: Arduino Uno R4 WiFi FspTimer
 
 The Uno R4 WiFi uses the Renesas RA4M1. Its Arduino core provides `FspTimer`, which selects an available GPT or AGT hardware timer channel and configures it for periodic interrupts. This is board-specific Arduino code: it does not compile for the Uno R3.
 
-Upload [uno-r4-fsptimer.ino](../3_hard_time/arduino/uno-r4-fsptimer/uno-r4-fsptimer.ino) after selecting **Arduino UNO R4 WiFi**. The sketch requests a free timer channel and configures a `1 Hz` periodic event.
+### Using the Arduino CLI
+1. List the available boards and install the Uno R4 WiFi core if you haven't already:
+```bash
+arduino-cli board list
+```
+This should produce output like:
+```text
+Port         Protocol Type              Board Name          FQBN                          Core
+/dev/ttyACM0 serial   Serial Port (USB) Arduino UNO R4 WiFi arduino:renesas_uno:unor4wifi arduino:renesas_uno
+```
+
+```bash
+arduino-cli core update-index
+arduino-cli core install arduino:renesas_uno
+```
+2. Compile the sketch:
+```bash
+arduino-cli compile -b arduino:renesas_uno:unor4wifi uno-r4-fsptimer
+``` 
+3. Upload the sketch to your Uno R4 WiFi:
+```bash
+arduino-cli upload -p <your_port> --fqbn arduino:renesas_uno:unor4wifi uno-r4-fsptimer
+``` 
+
+After uploading, the sketch requests a free timer channel and configures a `1 Hz` periodic event.
+
+My specific Uno R4 WiFi board has the R7FA4M1AB3CFM chip on it from the Renesas RA4M1 family. 
+Question: How many timers can the R7FA4M1AB3CFM run at the same time? The R7FA4M1AB3CFM has multiple GPT and AGT timers, allowing several timers to run concurrently. According to the [datasheet](https://www.renesas.com/en/products/ra4m1/part-details/r7fa4m1ab3cfm-aa0) the following timers are available as shown in this table:
+| Timer Type | Number of Timers | Description |
+| --- | --- | --- |
+| GPT 32-Bit | 2 | General Purpose Timers, 32-bit |
+| GPT 16-Bit | 6 | General Purpose Timers, 16-bit |
+| AGT | 2 | Asynchronous General Purpose Timer / Interval Timer (channels) |
+| Watchdog Timer | 2 | Watchdog timers |
+No 8-bit timers are available on the R7FA4M1AB3CFM.
+![R7FA4M1AB3CFM](images/r7fa4m1ab3cfm.png)
 
 ## Part C: STM32 Nucleo-F401RE TIM2
 

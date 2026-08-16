@@ -44,6 +44,7 @@ Source: [STMicroelectronics](https://www.st.com/resource/en/user_manual/um1724-s
 | Debugging and programming | USB-to-serial bootloader; ICSP | USB bootloader; SWD pads | On-board ST-LINK debugger/programmer |
 | On-board user interface | One user LED | 12 x 8 LED matrix, user LED, Qwiic connector | One user LED, user button, reset button |
 | Expansion | Arduino Uno R3 shield headers | Arduino Uno R3 shield headers and Qwiic | Arduino Uno R3 headers and ST Morpho male headers |
+| Timers | 3 timers: Timer0 (8-bit), Timer1 (16-bit), Timer2 (8-bit) |2 × 32-bit + 6 × 16-bit | 4 general-purpose timers, 2 advanced timers, 2 basic timers |
 
 Specifications are summarised from the [Arduino Uno R3](https://docs.arduino.cc/hardware/uno-rev3/), [Arduino Uno R4 WiFi](https://docs.arduino.cc/hardware/uno-r4-wifi/), and [ST NUCLEO-F401RE](https://www.st.com/en/evaluation-tools/nucleo-f401re.html) documentation. Check the board pinout and MCU datasheet before connecting hardware: connector-accessible pins and alternate functions depend on the board.
 

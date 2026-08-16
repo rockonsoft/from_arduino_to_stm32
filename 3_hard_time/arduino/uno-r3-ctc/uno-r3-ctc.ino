@@ -2,7 +2,7 @@
 
 const byte redLedPin = 8;
 const byte blueLedPin = 7;
-volatile bool timerTick = false;
+volatile bool timerTick = false; // this is the timer interrupt flag
 bool redIsOn = false;
 
 ISR(TIMER1_COMPA_vect) {
